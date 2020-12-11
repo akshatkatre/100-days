@@ -1,6 +1,6 @@
 import random
-import sources_1.hangman.hangman_art as ha
-import sources_1.hangman.hangman_words as hw
+import hangman.hangman_art as ha
+import hangman.hangman_words as hw
 
 
 random_word : str = random.choice(hw.word_list)

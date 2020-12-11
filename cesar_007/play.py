@@ -23,7 +23,7 @@ def caesar(start_text, shift_amount, cipher_direction):
 
 
 # TODO-1: Import and print the logo from art.py when the program starts.
-import sources_1.cesar_007.art as art
+import cesar_007.art as art
 
 print(art.logo)
 
