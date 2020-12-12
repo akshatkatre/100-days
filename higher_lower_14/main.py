@@ -43,6 +43,7 @@ while is_user_winning:
         choice_A = choice_B
         choice_B = None
         user_score += 1
+        print(f"you are right! Current score {user_score}")
         choice_B = get_next_data_option(choice_A)
 
 print(f"Sorry, that's wrong. Final score {user_score}")
