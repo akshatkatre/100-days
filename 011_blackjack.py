@@ -30,17 +30,21 @@ while another_card == 'y':
     if sum(computer_hand) == 21:
         print('You lose')
         game_ended = True
+        break
     elif sum(user_hand) == 21:
         print('You win')
         game_ended = True
+        break
     elif sum(user_hand) > 21 and user_hand.count(11) > 0:
         user_hand[user_hand.index(11)] = 1
         if sum(user_hand) > 21:
             print('you lose')
             game_ended = True
+            break
         elif sum(user_hand) == 21:
             print('you win')
             game_ended = True
+            break
     elif sum(user_hand) > 21 and user_hand.count(11) == 0:
         print('you lose')
         game_ended = True
