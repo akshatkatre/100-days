@@ -9,24 +9,19 @@ NICKLE_VALUE = 0.05
 PENNY_VALUE = 0.01
 
 
-def check_resources(coffee_option: str) -> str:
-    # print('Inside check resources...')
+def check_resources(coffee_option: dict):
     shortage = None
-    for key in coffee_resources:
-        if key == 'milk' and coffee_option == 'espresso':
-            pass
-        else:
-            # print(f"{coffee_resources[key]} vs {coffee_menu[coffee_option]['ingredients'][key]}")
-            if coffee_resources[key] < coffee_menu[coffee_option]['ingredients'][key]:
-                shortage = key
-                break
-    # print(f'shortage value: {shortage}')
+    for key in coffee_option:
+        if coffee_resources[key] < coffee_option[key]:
+            shortage = key
+            return shortage
     return shortage
 
 
 def print_report():
-    for i in coffee_resources:
-        print(f"{i}: {coffee_resources[i]}")
+    print(f"water: {coffee_resources['water']} ml")
+    print(f"milk: {coffee_resources['milk']} ml")
+    print(f"coffee: {coffee_resources['coffee']} gm")
     print(f"money ${money}")
 
 
@@ -39,7 +34,6 @@ def process_coins() -> float:
     return total_value
 
 
-# todo Check transaction is successful
 def check_transaction_successful(coffee_option: str, amount: float) -> bool:
     global money
     # print(f"**** {coffee_menu[coffee_option]['cost']} vs {amount}")
@@ -53,13 +47,9 @@ def check_transaction_successful(coffee_option: str, amount: float) -> bool:
         return True
 
 
-def make_coffee(coffee_option: str):
-    # print(f'coffee resources before: {coffee_resources}')
-    coffee_resources['water'] -= coffee_menu[coffee_option]['ingredients']['water']
-    coffee_resources['coffee'] -= coffee_menu[coffee_option]['ingredients']['coffee']
-    if coffee_option != 'espresso':
-        coffee_resources['milk'] -= coffee_menu[coffee_option]['ingredients']['milk'] or 0.0
-    # print(f'coffee resources after: {coffee_resources}')
+def make_coffee(coffee_option: dict):
+    for key in coffee_option:
+        coffee_resources[key] -= coffee_option[key]
 
 
 user_input: str = None
@@ -69,13 +59,13 @@ while user_input != 'off':
     if user_input == 'report':
         print_report()
     elif user_input in ['espresso', 'latte', 'cappuccino']:
-        shortage_value = check_resources(user_input)
+        shortage_value = check_resources(coffee_menu[user_input]['ingredients'])
         if shortage_value is not None:
             print(f'Sorry there is not enough {shortage_value}')
         else:
             total_amount = process_coins()
             # print(total_amount)
             if check_transaction_successful(user_input, total_amount):
-                make_coffee(user_input)
+                make_coffee(coffee_menu[user_input]['ingredients'])
             else:
                 print("Sorry that's not enough money. Money refunded.")
