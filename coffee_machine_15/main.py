@@ -1,4 +1,4 @@
-from coffee_data import MENU, resources
+from coffee_machine_15.coffee_data import  MENU, resources
 
 money: float = 0.0
 coffee_menu = MENU
