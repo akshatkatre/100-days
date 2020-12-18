@@ -21,8 +21,7 @@ t.colormode(255)
 DEGREES = 360
 
 
-def draw_shape(num_of_sides : int):
-
+def draw_shape(num_of_sides: int):
     degree_angle = DEGREES / num_of_sides
     for i in range(0, num_of_sides):
         tim.right(degree_angle)
@@ -34,11 +33,13 @@ color_scheme = ['red', 'green', 'blue', 'black', 'brown']
 #     tim.color(random.choice(color_scheme))
 #     draw_shape(side)
 
+
 def get_random_color():
     r = random.randint(0, 255)
     g = random.randint(0, 255)
     b = random.randint(0, 255)
     return (r, g, b)
+
 
 def random_walk(iterations: int):
     tim.speed(0)
@@ -65,8 +66,6 @@ degree_angle = DEGREES / number_of_circles
 for i in range(0, number_of_circles):
     tim.setheading(tim.heading() + degree_angle)
     draw_circle(100)
-
-
 
 screen = Screen()
 screen.exitonclick()
