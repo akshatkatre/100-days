@@ -1,5 +1,6 @@
 import time
 from turtle import Screen
+import random
 from crossing_game_23.player import Player
 from crossing_game_23.car_manager import CarManager
 from crossing_game_23.scoreboard import Scoreboard
@@ -27,7 +28,7 @@ while game_is_on:
         player.go_to_starting_position()
         car_manager.increase_speed()
 
-    if counter % 6 == 0:
+    if random.randint(1, 6) == 1:
         car_manager.create_car()
 
     # detect collision
