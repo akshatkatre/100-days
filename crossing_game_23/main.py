@@ -36,7 +36,8 @@ while game_is_on:
         if car.distance(player) < 30:
             print('Game Over')
             scoreboard.game_over()
-            # game_is_on = False
+            game_is_on = False
 
     counter += 1
 
+screen.exitonclick()
