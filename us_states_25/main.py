@@ -3,7 +3,7 @@ import pandas as pd
 
 #
 data = pd.read_csv('50_states.csv')
-
+all_states = data.state.to_list()
 
 def return_state_coordinates(state_name):
     """
@@ -29,6 +29,8 @@ writer.penup()
 writer.hideturtle()
 
 correct_states = []
+
+
 attempts = 50
 for i in range(50):
     answer_state = screen.textinput(title=f"Guess the state {i}/{attempts}", prompt="State Name")
@@ -36,6 +38,9 @@ for i in range(50):
     name_list_2 = [name.capitalize() for name in name_list]
     new_state_name = " ".join(name_list_2)
     if new_state_name == 'Q':
+        missing_states = [state for state in all_states if state not in correct_states]
+        missing_states_df = pd.DataFrame(missing_states)
+        missing_states_df.to_csv("states_to_learn.csv")
         break
     coordinates = return_state_coordinates(new_state_name)
     if coordinates is not None:
