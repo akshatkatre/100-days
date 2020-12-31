@@ -36,9 +36,9 @@ headers = {
 input_data = {
 "query":raw_input,
  "gender":"male",
- "weight_kg":72,
- "height_cm":165,
- "age":42
+ "weight_kg":"Your weight",
+ "height_cm": "Your height",
+ "age": "Your age"
 }
 
 response = requests.post(url=ENDPOINT, headers=headers, json=input_data)
