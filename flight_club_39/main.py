@@ -43,5 +43,5 @@ for row in data['prices']:
             price = int(search_result['price'])
             if price < int(row['lowestPrice']):
                 print("*** Lower Price Record Found ***")
-                print(search_result)
+                print(search_result['cityFrom'],search_result['cityTo'], search_result['price'])
 
