@@ -15,7 +15,7 @@ def send_email(email_quote):
         connection.sendmail(
             from_addr=my_email,
             to_addrs="",
-            msg=f"subject:Friday Motivation\n\n{email_quote}"
+            msg=f"subject:Friday Motivation\n\n{email_quote}".
         )
 
 
