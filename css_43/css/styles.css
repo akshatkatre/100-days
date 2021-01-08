@@ -11,6 +11,7 @@ h1 {
 /****************** CLASSES ******************/
 .top-container {
     background-color: #E4F9F5;
+    text-align: center;
 }
 .middle-container {
     background-color: red;
