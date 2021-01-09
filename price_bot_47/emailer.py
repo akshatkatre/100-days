@@ -14,5 +14,3 @@ def send_email(message_body):
             to_addrs=to_email_address,
             msg=f"subject:Price Alert!\n\n{message_body}"
         )
-
-# send_email("The price has dropped to $70.85!!!", "akshat.katre@gmail.com")
