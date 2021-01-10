@@ -11,21 +11,22 @@ driver.get(url=URL)
 
 
 def purchase(m_value: int):
-    # buy_portal = driver.find_element_by_xpath('//*[@id="buyPortal"]/b')
-    # buy_portal_value = int(buy_portal.text.replace(',', '').split(' - ')[1])
-    # print(f"buy portal: {buy_portal_value}")
-    # if m_value > buy_portal_value:
-    #     buy_portal.click()
-    #     return True
-    #
-    # buy_alchemy = driver.find_element_by_xpath('//*[@id="buyAlchemy lab"]/b')
-    # buy_alchemy_value = int(buy_alchemy.text.replace(',', '').split(' - ')[1])
-    # print(f"buy alchemy: {buy_alchemy_value}")
-    # if m_value > buy_alchemy_value:
-    #     buy_alchemy.click()
-    #     return True
+    buy_portal = driver.find_element_by_xpath('//*[@id="buyPortal"]/b')
+    buy_portal_value = int(buy_portal.text.replace(',', '').split(' - ')[1])
+    print(f"buy portal: {buy_portal_value}")
+    if m_value > buy_portal_value:
+        buy_portal.click()
+        return True
+
+    buy_alchemy = driver.find_element_by_xpath('//*[@id="buyAlchemy lab"]/b')
+    buy_alchemy_value = int(buy_alchemy.text.replace(',', '').split(' - ')[1])
+    print(f"buy alchemy: {buy_alchemy_value}")
+    if m_value > buy_alchemy_value:
+        buy_alchemy.click()
+        return True
 
     buy_shipment = driver.find_element_by_xpath('//*[@id="buyShipment"]/b')
+    print(buy_shipment.text)
     buy_shipment_value = int(buy_shipment.text.replace(',','').split(' - ')[1])
     print(f"buy shipment: {buy_shipment_value}")
     if m_value > buy_shipment_value:
