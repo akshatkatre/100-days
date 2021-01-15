@@ -5,4 +5,4 @@
 |---|---|
 | 53  | Capstone project - Web scraping using *beautiful soup* and adding content to google form using *Selenium*.  |
 | 54  | Introduction to Flask, decorators  |
-|   |   |
+| 55 | Flask, web development - Higher lower game  |
