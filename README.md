@@ -7,3 +7,4 @@
 | 54  | Introduction to Flask, decorators  |
 | 55 | Flask, web development - Higher lower game  |
 | 56 | Flask, render static HTML content. Create Name Card App using https://html5up.net/identity template|
+| 57 | Flask, Jinja render dynamic HTML content. Create blog post |
