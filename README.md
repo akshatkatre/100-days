@@ -8,3 +8,7 @@
 | 55 | Flask, web development - Higher lower game  |
 | 56 | Flask, render static HTML content. Create Name Card App using https://html5up.net/identity template|
 | 57 | Flask, Jinja render dynamic HTML content. Create blog post |
+| 58 | Bootstrap Foundation (TBD)|
+| 59 | Blog site... bootstrap formatting |
+| 60 | Blog site, POST, HTML Forms, send email |
+| 61 | *** |
