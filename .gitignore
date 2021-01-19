@@ -4,4 +4,6 @@ venv
 .vscode
 virtualenv
 */__pycache__/
+*/*.db
+*.db
 
