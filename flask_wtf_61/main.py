@@ -5,9 +5,10 @@ from wtforms.validators import DataRequired, Length
 import os
 from flask_bootstrap import Bootstrap
 
+
 class MyForm(FlaskForm):
-    password = PasswordField('password', validators=[DataRequired(), Length(min=8)])
     email = StringField('email', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired(), Length(min=8)])
     submit = SubmitField(label="Log In")
 
 
