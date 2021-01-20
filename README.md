@@ -12,3 +12,6 @@
 | 59 | Blog site... bootstrap formatting |
 | 60 | Blog site, POST, HTML Forms, send email |
 | 61 | Flask WTF Forms |
+| 62 | TBD |
+| 63 | Library CRUD app with SQLlite & flask Jinja2 |
+| 64 | TBD |

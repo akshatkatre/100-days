@@ -17,7 +17,7 @@ class Books(db.Model):
     def __repr__(self):
         return '<User %r>' % self.name
 
-
+# The below statement will create the Table.
 # db.create_all()
 
 # book1 = Books(name = 'Chambers of secrets', author='JK Rowlings', rating='9.3')
@@ -27,6 +27,7 @@ class Books(db.Model):
 # db.session.add(book2)
 # db.session.commit()
 
+
 all_books = db.session.query(Books).all()
 for book in all_books:
     print(book.id, book.name, book.author, book.rating)
@@ -34,28 +35,17 @@ for book in all_books:
 
 @app.route('/')
 def home():
-    print(len(all_books), all_books)
+    print(len(all_books))
     return render_template('index.html', books=all_books)
 
 
 @app.route("/add", methods=['GET', 'POST'])
 def add():
-    print('Inside add...')
+    print('Inside add method GET...')
     if request.method == 'GET':
         return render_template('add.html')
     else:
-        # name = request.form['name']
-        # author = request.form['author']
-        # rating = request.form['rating']
-        # print(name, author, rating)
-        # book = {
-        #     "name" : request.form['name'],
-        #     "author" : request.form['author'],
-        #     "rating" : request.form['rating']
-        # }
-        # print(book)
-        # all_books.append(book)
-        print('adding new book...')
+        print('adding new book method POST...')
         new_book = Books(name=request.form['name'],
                          author=request.form['author'],
                          rating=request.form['rating'])
@@ -66,6 +56,7 @@ def add():
 
 @app.route("/delete/<id>")
 def delete_book(id):
+    print("Inside Delete")
     book_id = id
     book_to_delete = Books.query.get(book_id)
     db.session.delete(book_to_delete)
@@ -73,12 +64,22 @@ def delete_book(id):
     return render_template('index.html', books=db.session.query(Books).all())
 
 
-@app.route("/edit/<id>/<rating>")
-def edit_rating(id, rating):
+@app.route("/edit/<id>/<rating>", methods=['GET'])
+def edit_view(id, rating):
+    print("Inside view ratings")
     print(id, rating)
     book_id = id
     book_to_update = Books.query.get(book_id)
-    book_to_update.rating = rating
+    return render_template('update_book.html', book=book_to_update)
+
+
+@app.route("/edit", methods=['POST'])
+def edit_rating():
+    # print(f"Inside edit_ratings()\n{request.form['rating']}; {request.form['rating']}")
+    print("Inside edit_ratings() method POST")
+    book_id = request.form['id']
+    book_to_update = Books.query.get(book_id)
+    book_to_update.rating = request.form['rating_inp']
     db.session.commit()
     return render_template('index.html', books=db.session.query(Books).all())
 
