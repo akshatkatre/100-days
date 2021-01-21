@@ -6,4 +6,6 @@ virtualenv
 */__pycache__/
 */*.db
 *.db
+*/*.csv
+*.csv
 
