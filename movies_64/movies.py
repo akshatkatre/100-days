@@ -22,16 +22,16 @@ class Movie(db.Model):
     title = db.Column(db.String(100), unique=True, nullable=False)
     year = db.Column(db.Integer, unique=False, nullable=False)
     description = db.Column(db.String(200), unique=False, nullable=False)
-    rating = db.Column(db.Float, unique=False, nullable=False)
-    ranking = db.Column(db.Integer, unique=False, nullable=False)
-    review = db.Column(db.String(2000), unique=False, nullable=False)
-    img_url = db.Column(db.String(200), unique=False, nullable=False)
+    rating = db.Column(db.Float, unique=False, nullable=True)
+    ranking = db.Column(db.Integer, unique=False, nullable=True)
+    review = db.Column(db.String(2000), unique=False, nullable=True)
+    img_url = db.Column(db.String(200), unique=False, nullable=True)
 
     def __repr__(self):
         return f'title {self.title}; year {self.year}'
 
 # The below statement will create the Table.
-# db.create_all()
+db.create_all()
 #
 # new_movie = Movie(
 #     title="Phone Booth",
